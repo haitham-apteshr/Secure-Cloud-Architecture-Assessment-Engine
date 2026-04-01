@@ -1,0 +1,26 @@
+finding_id,title,severity,scanner,score_A,rank_A,score_B,rank_B,score_C,rank_C,score_D,rank_D
+F001,SQL Injection  Checkout Endpoint,critical,OWASP_ZAP,64.3,1,100.0,1,78.6,1,100.0,1
+F002,Remote Code Execution  Image Upload,critical,OWASP_ZAP,64.3,2,100.0,2,78.6,2,100.0,1
+F003,EC2 Instance with Public AMI  No Auth,critical,Amazon_Inspector,64.3,3,100.0,3,57.1,6,100.0,1
+F004,Unpatched Log4Shell  Internal Service,critical,Amazon_Inspector,64.3,4,71.4,10,64.3,3,100.0,1
+F005,Insecure Direct Object Reference (IDOR),high,Prowler,50.0,5,85.7,4,57.1,7,85.7,5
+F006,S3 Bucket Public Read  Customer Data,high,Prowler,50.0,6,85.7,5,64.3,4,85.7,5
+F007,MFA Disabled  Privileged IAM Account,high,Prowler,50.0,7,74.3,8,57.1,8,85.7,5
+F008,Stored XSS  Product Review Form,high,OWASP_ZAP,50.0,8,78.6,7,42.9,14,85.7,5
+F009,SSRF  Metadata Endpoint Accessible,high,OWASP_ZAP,50.0,9,85.7,6,64.3,5,85.7,5
+F010,CVE-2023-44487 (HTTP/2 Rapid Reset),high,Nuclei,50.0,10,57.1,17,42.9,15,85.7,5
+F011,Container Image  Critical OS Vulns,high,Nuclei,50.0,11,74.3,9,57.1,9,85.7,5
+F012,Trivy: alpine:3.15  12 High CVEs,high,Trivy,50.0,12,50.0,20,50.0,10,85.7,5
+F013,HTTP Security Headers Missing (HSTS),medium,Checkov,35.7,13,57.1,18,14.3,25,71.4,13
+F014,CloudTrail Logging Disabled  us-east-1,medium,Checkov,35.7,14,71.4,11,50.0,11,71.4,13
+F015,Terraform: SG Allows 0.0.0.0/0 on Port 22,medium,Checkov,35.7,15,71.4,12,42.9,16,71.4,13
+F016,IMDSv1 Enabled on Production EC2,medium,Prowler,35.7,16,71.4,13,50.0,12,71.4,13
+F017,Lambda: No Dead-Letter Queue Configured,medium,Prowler,35.7,17,42.9,21,35.7,18,71.4,13
+F018,Reflected XSS  Search Parameter,medium,OWASP_ZAP,35.7,18,64.3,15,21.4,22,71.4,13
+F019,Weak TLS 1.0 Supported  API Gateway,medium,OWASP_ZAP,35.7,19,71.4,14,50.0,13,71.4,13
+F020,Unencrypted EBS Volume  DB Replica,medium,Trivy,35.7,20,64.3,16,42.9,17,71.4,13
+F021,Docker Image Running as Root,medium,Trivy,35.7,21,35.7,22,35.7,19,71.4,13
+F022,Missing Resource Tags  Cost Allocation,low,Checkov,21.4,22,28.6,23,21.4,23,57.1,22
+F023,Verbose Error Messages Exposed,low,Checkov,21.4,23,57.1,19,28.6,20,57.1,22
+F024,Inspector: Outdated aws-cli in Dev Image,low,Amazon_Inspector,21.4,24,21.4,25,21.4,24,57.1,22
+F025,Trivy: curl 7.68  Informational CVE,low,Trivy,21.4,25,28.6,24,28.6,21,57.1,22

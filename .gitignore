@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pickle
+*.pkl
+
+# Environments
+.env
+venv/
+env/
+.venv/
+
+# SQLite
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Generated reports/outputs
+assessment_report.json
+assessment_report.md
+*.pdf
+
+# RAG Database and Uploads
+rag_db/
+rag_docs/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db

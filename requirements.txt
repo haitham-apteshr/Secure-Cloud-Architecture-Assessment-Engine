@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+PyMySQL
+cryptography
+python-multipart
+python-dotenv
+slowapi
+groq
+requests
+reportlab
+chromadb
+sentence-transformers
+PyMuPDF

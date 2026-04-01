@@ -1,0 +1,25 @@
+# Modelfile for importing the RAFT-trained Llama 3.2 model into Ollama
+
+# 1. Point to the GGUF file you downloaded from Colab
+# Change this path if you saved the file with a different name
+FROM ./unsloth.Q8_0.gguf
+
+# 2. Set the parameter configuration
+PARAMETER temperature 0.1
+PARAMETER top_p 0.9
+PARAMETER stop "<|eot_id|>"
+
+# 3. Set the system prompt
+SYSTEM """
+You are a Well-Architected Framework (WAF) compliance assessment expert. 
+You answer questions strictly based on the provided context in the RAFT format. 
+If the information is not in the context, you state that you do not know.
+"""
+
+# 4. Set the prompt template (Llama 3 format)
+TEMPLATE """<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+{{ .System }}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+{{ .Prompt }}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+"""

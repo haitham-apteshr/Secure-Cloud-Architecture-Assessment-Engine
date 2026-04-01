@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://CloudSecurityApp_user:${DB_PASSWORD}@db:3306/CloudSecurityApp
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:5173}
+      - API_KEY_SALT=${API_KEY_SALT}
+      - LLM_MODEL=${LLM_MODEL:-llama3.2}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=CloudSecurityApp
+      - MYSQL_USER=CloudSecurityApp_user
+      - MYSQL_PASSWORD=${DB_PASSWORD:-change_me_in_production}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-change_me_root}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-change_me_root}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
